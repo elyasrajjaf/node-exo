@@ -1,0 +1,36 @@
+extends ../layout/index
+
+block content
+    div.py-10
+        h1.text-4xl.my-10.font-bold.text-center Agence
+            span.font-medium.text-blue-500 Immo
+
+        .mt-8.mx-auto.max-w-md
+            .bg-white.py-8.px-4.rounded-lg 
+                form.space-y-5(method="POST" action="/auth/register")
+                    h2.text-center.text-xl.font-medium.text-blue-500= title
+                    div 
+                        label.text-sm.font-medium.text-gray-700.mb-3(for="email") Adresse Mail :
+                        input#email.w-full.px-3.py-2.border.border-gray-100.rounded.lg.placeholder-gray-400.my-4(placeholder="Adresse mail", type="email", name="email")
+                    div
+                        label.text-sm.font-medium.text-gray-700.mb-3(for="password") Mot de passe :
+                        input#password.w-full.px-3.py-2.border.border-gray-100.rounded.lg.placeholder-gray-400.my-4(placeholder="Mot de passe", type="password", name="password")
+                    div
+                        label.text-sm.font-medium.text-gray-700.mb-3(for="firstname") Prénom :
+                        input#firstname.w-full.px-3.py-2.border.border-gray-100.rounded.lg.placeholder-gray-400.my-4(placeholder="Prénom", type="text", name="firstname")
+                    div
+                        label.text-sm.font-medium.text-gray-700.mb-3(for="lastname") Nom :
+                        input#lastname.w-full.px-3.py-2.border.border-gray-100.rounded.lg.placeholder-gray-400.my-4(placeholder="Nom", type="text", name="lastname")
+                    div 
+                        label.text-sm.font-medium.text-gray-700.mb-3(for="civilite") Civilité :
+                        select#civilite.w-full.px-3.py-2.border.border-gray-100.rounded.lg.placeholder-gray-400.my-4(placeholder="Civilité", type="text", name="civilite")
+                            option Monsieur
+                            option Madame
+                    div 
+                        label.text-sm.font-medium.text-gray-700.mb-3(for="phone") Téléphone :
+                        input#phone.w-full.px-3.py-2.border.border-gray-100.rounded.lg.placeholder-gray-400.my-4(placeholder="Téléphone", type="text", name="phone")
+                    div.text-center.mt-4
+                        p.text-gray-600 Vous avez dejà un compte ? 
+                            a.text-blue-500(href="/auth/login") Se connecter
+                    div.text-center.mt-4
+                        input(class="w-full bg-blue-600 transition-colors hover:bg-blue-800 rounded-xl text-white px-4 py-2 cursor-pointer" type="submit" value="S'inscrire")
