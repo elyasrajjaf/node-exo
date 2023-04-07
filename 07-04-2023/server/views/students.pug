@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title Liste des étudiants
+    link(rel="stylesheet", href="/assets/style.css")
+  body
+    h1 Liste des étudiants
+    div.container
+      table
+        thead
+          tr
+            th Nom
+            th Date d'anniversaire
+            th Action
+        tbody
+          each student in students
+            tr
+              td #{student.name}
+              td #{student.formattedBirth}
+              td
+                button(onclick=`deleteStudent('${student.id}')`) Supprimer
+    script.
+      function deleteStudent(studentId) {
+          if (confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')) {
+              fetch('/students/' + studentId, { method: 'DELETE' })
+                  .then(() => window.location.reload());
+          }
+      }
